@@ -9,7 +9,7 @@
 	<div class="text-center">
 	    <form method="POST" action="/" class="">
 	        <input type="text" name="burger_name" class="">
-	        <button type="button" class="btn btn-primary">Submit</button>
+	        <button type="submit" class="btn btn-primary">Submit</button>
 	        <br>
 	        Enter a burger you want to eat. Click the "Submit" button.
 	    </form>
@@ -19,20 +19,23 @@
 
 	<div class = "row" >   
 	    <div class="pull-left col-md-6">
-	       <div class = "well well-sm">
+	        <div class = "well well-sm">
 	        <ul class ="list-group">
 	            {{#each burgers}} {{#unless this.devoured}}
+	            <div>
 	                <li class="list-group-item">
 	                    <div>
 	                        {{this.burger_name}}
-	                    </div>
+	                    </div>	                    
 	                </li>
-	                <br>
-	                <form action="/{{this.id}}?_method=PUT" method="POST">
-	                        <input type="hidden" name="devoured" value="true">
-	                        <button type="submit" class="pull-right">Devour It!</button>
-	                </form>
-	                
+	                <br>	
+	            
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
+			            <input type="hidden" name="devoured" value="true">
+			            <button type="submit" class="pull-right">Devour It!</button>
+			        </form>
+	                     
+	            </div>
 	            {{/unless}} {{/each}}
 	        </ul>
             </div>
